@@ -3,6 +3,8 @@ import { Bar } from 'react-chartjs-2';
 import { useDispatch, useSelector } from "react-redux";
 import { setChart } from './actionChart';
 
+import './chart.scss';
+
 const Chart = () => {
 
   const storeData = useSelector(state => state);
@@ -44,26 +46,30 @@ const Chart = () => {
   useEffect(() => {
 
     if (storeData.pickState) {
+
       console.log(storeData.dataChart);
 
-      // if (storeData.dataChart.length === 1) {
-      //   const dates = storeData.dataChart[0].map((item) => item.date);
-      //   const data = storeData.dataChart[0].map((item) => item.positive);
-      //   dispatch(setChart(labelDateCreator(dates), data));
-      // } else {
-      //   const dates = storeData.dataChart.map((item) => item.date);
-      //   const data = storeData.dataChart.map((item) => item.positive);
-      //   dispatch(setChart(labelDateCreator(dates), data));
-      // }
-
+      if (storeData.dataChart.length === 1) {
+        const dates = storeData.dataChart[0].map((item) => item.date);
+        const data = storeData.dataChart[0].map((item) => item.positive);
+        const death = storeData.dataChart[0].map((item) => item.death);
+        dispatch(setChart(labelDateCreator(dates), data, death));
+      } else {
+        const dates = storeData.dataChart.map((item) => item.date);
+        const data = storeData.dataChart.map((item) => item.positive);
+        const death = storeData.dataChart.map((item) => item.death);
+        dispatch(setChart(labelDateCreator(dates), data, death));
+      }
 
     } else {
 
       let dataStates = [];
+      let dataDeath = [];
 
       storeData.dataChart && storeData?.dataChart.forEach((item) => dataStates = [...dataStates, item[0].positive]);
+      storeData.dataChart && storeData?.dataChart.forEach((item) => dataDeath = [...dataDeath, item[0].death]);
 
-      dispatch(setChart(labelCreator(), dataStates));
+      dispatch(setChart(labelCreator(), dataStates, dataDeath));
 
     }
 
@@ -74,6 +80,7 @@ const Chart = () => {
     labels: storeData.chartConfig.labelStates,
     datasets: [
       {
+        type: 'bar',
         label: 'Positive Cases',
         data: storeData.chartConfig.dataStates,
         backgroundColor: [
@@ -94,6 +101,14 @@ const Chart = () => {
         ],
         borderWidth: 1,
       },
+      {
+        type: 'line',
+        label: 'Death',
+        borderColor: 'rgb(54, 162, 235)',
+        borderWidth: 2,
+        fill: false,
+        data: storeData.chartConfig.dataDeath,
+      },
     ],
   };
 
@@ -109,7 +124,7 @@ const Chart = () => {
     },
   };
   return (
-    <div>
+    <div className='container-chart'>
       <Bar data={data} options={options} />
     </div>
   );

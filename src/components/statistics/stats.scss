@@ -1,0 +1,12 @@
+div.container-stats{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 0 2%;
+  border-radius: 10px 10px 10px 10px;
+  font-weight: bold;
+  background-color: rgba(54, 162, 235, 0.2);
+}

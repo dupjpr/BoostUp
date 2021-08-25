@@ -48,6 +48,16 @@ const rootReducer = (state, action) => {
         ...state,
         chartConfig: { ...state.chartConfig, dataStates: action.payload }
       }
+    case 'DATA-CHART-DEATH':
+      return {
+        ...state,
+        chartConfig: { ...state.chartConfig, dataDeath: action.payload }
+      }
+    case 'TOTAL-USA':
+      return {
+        ...state,
+        statUSA: { ...state.statUSA, positive: action.payload.PositiveUSA,  death: action.payload.DeathUSA}
+      }
     default:
       return state
   }

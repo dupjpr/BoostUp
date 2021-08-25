@@ -4,6 +4,10 @@ import { getDataAction } from './actionsFetch';
 import { classifyData } from './actionClassify';
 import Chart from "../Chart/Chart";
 import Filter from "../Filter/Filter";
+import Statistics from "../statistics/Statistics";
+import store from "../../store/store";
+
+import './home.scss';
 
 const Home = () => {
 
@@ -31,11 +35,13 @@ const Home = () => {
   }, [storeData.data]);
 
   return (
-    <div>
-      <h1>COVID</h1>
-      <Filter />
-      <Chart/>
-
+    <div className='app-container'>
+      <h1 className='app-container-title'>EE.UU COVID DATA</h1>
+      <div className='app-container-filter'>
+        <Filter />
+        {storeData.dataClassify && <Statistics />}
+      </div>
+      {storeData.dataClassify && <Chart />}
     </div>
   );
 }

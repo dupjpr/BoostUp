@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterData } from './actionFilter';
 
+import './filter.scss';
+
 const Filter = () => {
 
   const storeData = useSelector(state => state);
@@ -15,7 +17,7 @@ const Filter = () => {
   });
 
   const handleChange = (e, selected) => {
-    
+
     filterDataFunction(e.target.value, selected)
   }
 
@@ -27,7 +29,6 @@ const Filter = () => {
 
     if (selected === 'state') {
       if (e !== "All states") {
-        console.log(e);
         const newData = filterState(e)
         dispatch(filterData(newData, e));
       } else {
@@ -42,12 +43,13 @@ const Filter = () => {
           const stateUSA = filterState(storeData.pickState);
           const newData = stateUSA[0].filter((item, idex) => idex <= 6);
           dispatch(filterData(newData, storeData.pickState));
-        } else {
-          const newData = storeData.dataClassify.map((item) => {
-            return item.filter((element, idex) => idex <= 6)
-          });
-          dispatch(filterData(newData, storeData.pickState));
-        }
+        } 
+        // else {
+        //   const newData = storeData.dataClassify.map((item) => {
+        //     return item.filter((element, idex) => idex <= 6)
+        //   });
+        //   dispatch(filterData(newData, storeData.pickState));
+        // }
 
       }
       if (e === "Last 1 month") {
@@ -55,22 +57,29 @@ const Filter = () => {
           const stateUSA = filterState(storeData.pickState);
           const newData = stateUSA[0].filter((item, idex) => idex <= 29);
           dispatch(filterData(newData, storeData.pickState));
-        } else {
-          const newData = storeData.dataClassify.map((item) => {
-            return item.filter((element, idex) => idex <= 29)
-          });
-          dispatch(filterData(newData, storeData.pickState));
-        }
+        } 
+        // else {
+        //   const newData = storeData.dataClassify.map((item) => {
+        //     return item.filter((element, idex) => idex <= 29)
+        //   });
+        //   dispatch(filterData(newData, storeData.pickState));
+        // }
       }
       if (e === "All Time") {
-        dispatch(filterData(storeData.dataClassify, storeData.pickState));
+        if (storeData.pickState) {
+          const stateUSA = filterState(storeData.pickState);
+          dispatch(filterData(stateUSA, storeData.pickState));
+        } else {
+          dispatch(filterData(storeData.dataClassify, storeData.pickState));
+        }
+
       }
     }
 
   }
 
   return (
-    <div>
+    <div className='container-inputs'>
       <select onChange={(e) => handleChange(e, 'state')}>
         <option defaultValue key='All states' value="All states">All States</option>
         {labelState.map((item) => (

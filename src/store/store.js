@@ -6,8 +6,10 @@ const initialState = {
   data: '',
   dataClassify: '',
   pickState: '',
+  statUSA: { positive: '', death: '' },
   dataChart: '',
-  chartConfig: { labelStates: '', dataStates: '' },
+  chartConfig: { labelStates: '', dataStates: '', dataDeath: '' },
+  fiterTime: { allTime: '', sevenDays: '', oneMonth: '' },
   loading: false,
   statesEEUU: {
     AL: 'Alabama',
