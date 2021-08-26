@@ -12,6 +12,8 @@ In the first view of the application you can see the information of the positive
 
 If you want to see detailed information for each state, you must select the desired state from the drop-down menu. When selecting a state, a new menu will be displayed that allows you to view the information by time bands, seven days, a month or all the dates available in the database.
 
+If the mouse pointer is placed on each bar of the graph, a tooltip is displayed with information about the total, the date and the status to which each bar or point of the graphs corresponds.
+
 Finally, in the upper right part of the screen, in a blue box is the general information on the number of positive cases and deaths throughout the country.
 
 ## Built With :atom:
@@ -25,7 +27,7 @@ Finally, in the upper right part of the screen, in a blue box is the general inf
 
 ## Autor
 
-:man: Juan Pablo Rodríguez Guevara.
+:bust_in_silhouette: Juan Pablo Rodríguez Guevara.
 
 ## Contact
 
