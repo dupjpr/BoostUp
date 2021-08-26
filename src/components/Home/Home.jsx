@@ -41,7 +41,9 @@ const Home = () => {
         <Filter />
         {storeData.dataClassify && <Statistics />}
       </div>
-      {storeData.dataClassify && <Chart />}
+      <div className='app-container-chart'>
+        {storeData.loading ? <Chart /> : 'Loading...'}
+      </div>
     </div>
   );
 }
