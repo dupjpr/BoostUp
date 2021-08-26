@@ -17,12 +17,15 @@ const { loading, getData, error } = actions;
 
 const getDataAction = () => {
   return dispatch => {
-    
+
     const url = 'data.json';
     fetch(url)
       .then(response => response.json())
-      .then(data => dispatch(getData(data)));
-      
+      .then(data => {
+        dispatch(getData(data))
+        dispatch(loading(true))
+      });
+
   }
 }
 
