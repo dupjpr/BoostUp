@@ -16,6 +16,8 @@ If the mouse pointer is placed on each bar of the graph, a tooltip is displayed 
 
 Finally, in the upper right part of the screen, in a blue box is the general information on the number of positive cases and deaths throughout the country.
 
+To configure the project locally, use yarn.
+
 ## Built With :atom:
 
 * React JS. ⚛
