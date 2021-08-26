@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/BoostUp/static/css/main.11d1706f.chunk.css",
+    "main.js": "/BoostUp/static/js/main.6db9a9ce.chunk.js",
+    "main.js.map": "/BoostUp/static/js/main.6db9a9ce.chunk.js.map",
+    "runtime-main.js": "/BoostUp/static/js/runtime-main.8c068fa4.js",
+    "runtime-main.js.map": "/BoostUp/static/js/runtime-main.8c068fa4.js.map",
+    "static/js/2.3de88c3f.chunk.js": "/BoostUp/static/js/2.3de88c3f.chunk.js",
+    "static/js/2.3de88c3f.chunk.js.map": "/BoostUp/static/js/2.3de88c3f.chunk.js.map",
+    "index.html": "/BoostUp/index.html",
+    "static/css/main.11d1706f.chunk.css.map": "/BoostUp/static/css/main.11d1706f.chunk.css.map",
+    "static/js/2.3de88c3f.chunk.js.LICENSE.txt": "/BoostUp/static/js/2.3de88c3f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c068fa4.js",
+    "static/js/2.3de88c3f.chunk.js",
+    "static/css/main.11d1706f.chunk.css",
+    "static/js/main.6db9a9ce.chunk.js"
+  ]
+}
