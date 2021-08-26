@@ -30,8 +30,9 @@ const Filter = () => {
     if (selected === 'state') {
       if (e !== "All states") {
         const newData = filterState(e)
-        dispatch(filterData(newData, e));
-      } else {
+        dispatch(filterData(newData, e, true));
+      } 
+      else {
         dispatch(filterData(storeData?.dataClassify, ''));
       }
     }
@@ -42,33 +43,20 @@ const Filter = () => {
         if (storeData.pickState) {
           const stateUSA = filterState(storeData.pickState);
           const newData = stateUSA[0].filter((item, idex) => idex <= 6);
-          dispatch(filterData(newData, storeData.pickState));
+          dispatch(filterData(newData, storeData.pickState, true));
         } 
-        // else {
-        //   const newData = storeData.dataClassify.map((item) => {
-        //     return item.filter((element, idex) => idex <= 6)
-        //   });
-        //   dispatch(filterData(newData, storeData.pickState));
-        // }
-
       }
       if (e === "Last 1 month") {
         if (storeData.pickState) {
           const stateUSA = filterState(storeData.pickState);
           const newData = stateUSA[0].filter((item, idex) => idex <= 29);
-          dispatch(filterData(newData, storeData.pickState));
+          dispatch(filterData(newData, storeData.pickState, true));
         } 
-        // else {
-        //   const newData = storeData.dataClassify.map((item) => {
-        //     return item.filter((element, idex) => idex <= 29)
-        //   });
-        //   dispatch(filterData(newData, storeData.pickState));
-        // }
       }
       if (e === "All Time") {
         if (storeData.pickState) {
           const stateUSA = filterState(storeData.pickState);
-          dispatch(filterData(stateUSA, storeData.pickState));
+          dispatch(filterData(stateUSA, storeData.pickState, true));
         } else {
           dispatch(filterData(storeData.dataClassify, storeData.pickState));
         }
@@ -80,17 +68,17 @@ const Filter = () => {
 
   return (
     <div className='container-inputs'>
-      <select onChange={(e) => handleChange(e, 'state')}>
+      <select value={storeData.pickState} onChange={(e) => handleChange(e, 'state')}>
         <option defaultValue key='All states' value="All states">All States</option>
         {labelState.map((item) => (
           <option key={item.stateInitials} value={item.stateInitials}>{item.stateName}</option>
         ))}
       </select>
-      <select onChange={(e) => handleChange(e, 'time')}>
+      {storeData.activeInput && <select  onChange={(e) => handleChange(e, 'time')}>
         <option defaultValue value="All Time">All time</option>
         <option value="Last 7 days">Last 7 days</option>
         <option value="Last 1 month">Last 1 month</option>
-      </select>
+      </select>}
     </div>
   );
 }

@@ -47,8 +47,6 @@ const Chart = () => {
 
     if (storeData.pickState) {
 
-      console.log(storeData.dataChart);
-
       if (storeData.dataChart.length === 1) {
         const dates = storeData.dataChart[0].map((item) => item.date);
         const data = storeData.dataChart[0].map((item) => item.positive);

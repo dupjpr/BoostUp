@@ -38,6 +38,11 @@ const rootReducer = (state, action) => {
         ...state,
         pickState: action.payload
       }
+    case 'ACTIVE-OPTION':
+      return {
+        ...state,
+        activeInput: action.payload
+      }
     case 'LABEL-X':
       return {
         ...state,

@@ -9,7 +9,7 @@ const initialState = {
   statUSA: { positive: '', death: '' },
   dataChart: '',
   chartConfig: { labelStates: '', dataStates: '', dataDeath: '' },
-  fiterTime: { allTime: '', sevenDays: '', oneMonth: '' },
+  activeInput: false,
   loading: false,
   statesEEUU: {
     AL: 'Alabama',
